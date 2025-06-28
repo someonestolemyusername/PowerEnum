@@ -1,0 +1,38 @@
+<Project>
+	<PropertyGroup>
+		<!-- The target frameworks for the shared .dll delivered to end users. -->
+		<PowerEnum_TargetFrameworks>netstandard2.0</PowerEnum_TargetFrameworks>
+
+		<!-- The version of the NuGet package that we produce -->
+		<Version>0.0.1-alpha</Version>
+
+		<!-- The version of the assemblies delivered to end users. -->
+		<!-- Note this should only be incremented with new major versions of the package. -->
+		<AssemblyVersion>0.0.0.1</AssemblyVersion>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Copyright>2025 Fabs</Copyright>
+		<Product>PowerEnum</Product>
+		<Authors>Fabs</Authors>
+		<RepositoryUrl>https://github.com/someonestolemyusername/PowerEnum</RepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<DebugType>embedded</DebugType>
+		<EmbedAllSources>true</EmbedAllSources>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+	</PropertyGroup>
+	
+	<ItemGroup>
+      <!-- Since we do not use SourceLink pointing to a repo, we need to add a source root. -->
+      <!-- See: https://github.com/dotnet/roslyn/issues/55860 -->
+      <SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+	</ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="DotNet.ReproducibleBuilds" Version="1.2.25" PrivateAssets="All"/>
+	</ItemGroup>
+
+	<Sdk Name="DotNet.ReproducibleBuilds.Isolated" Version="1.2.4" />
+</Project>

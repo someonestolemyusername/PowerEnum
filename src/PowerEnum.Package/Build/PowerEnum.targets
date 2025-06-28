@@ -1,0 +1,29 @@
+<Project InitialTargets="PowerEnum_CheckNETSdkVersion">
+	
+	<Target Name="PowerEnum_CheckNETSdkVersion">
+
+		<!-- If the user is using an older msbuild/visual studio which does not provide $CompilerApiVersion, we can also give them a nice warning if the .NET SDK is too old, which correlates with the required Roslyn version. -->
+		<Warning
+			Condition='&apos;$(CompilerApiVersion)&apos; == &apos;&apos; And &apos;$(NETCoreSdkVersion)&apos; != &apos;&apos; And &apos;$([System.Version]::Parse($(NETCoreSdkVersion)).CompareTo($([System.Version]::Parse("7.0"))))&apos; &lt; &apos;0&apos;'
+			Text="This project requires .NET SDK version 7.0 or higher. Current version: $(NETCoreSdkVersion)."
+			/>
+
+		<!-- If the user has CompilerApiVersion available (it is a fairly new property) we can give them a warning if their compiler is too old. -->
+		<Warning
+			Text="Your Roslyn version of '$(CompilerApiVersion)' is less than the required version 4.3.1. Please upgrade to version 4.3 or higher to use PowerEnum."
+			Condition="
+			'$(CompilerApiVersion)' != ''
+				And $([System.Text.RegularExpressions.Regex]::Match(
+						$(CompilerApiVersion),
+						'^roslyn(\d+\.\d+)$'
+					).Success)
+				And $([System.Version]::Parse(
+					$([System.Text.RegularExpressions.Regex]::Match(
+							$(CompilerApiVersion),
+							'^roslyn(\d+\.\d+)$'
+						).Groups[1].Value)
+					).CompareTo($([System.Version]::Parse('4.3')))) &lt; 0" />
+		
+	</Target>
+	
+</Project>

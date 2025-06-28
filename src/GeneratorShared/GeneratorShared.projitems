@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>c84f1661-2263-4df5-ad02-a1b1a2e37e46</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>GeneratorShared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Emitter\DocComments.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Emitter\Emitter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Generators\PowerEnumGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CompilationInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\EnumDefinition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\EquatableArray.cs" />
+  </ItemGroup>
+</Project>

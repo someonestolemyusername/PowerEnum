@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>$(PowerEnum_TargetFrameworks)</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <SuppressDependenciesWhenPacking>false</SuppressDependenciesWhenPacking>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>PowerEnum</PackageId>
+
+    <PackageProjectUrl>https://github.com/someonestolemyusername/PowerEnum</PackageProjectUrl>
+    <!--<PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>-->
+
+    <!-- Users may only use the software in accordance with the terms of the licence.     -->
+    <!-- Any "false" indication here is intended to allow the package to install without  -->
+	<!-- prompting the user. It does not imply the package may be used outside the terms  -->
+	<!-- of the license.                                                                  -->
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+
+	<PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+    <Description>PowerEnum helps you make smart enums in C# with less code! With a powerful source generator, all of the tedious work is done for you - so you can focus on building your application.</Description>
+    <PackageReleaseNotes>This is the first preview release of PowerEnum.</PackageReleaseNotes>
+    <Copyright>Copyright Fabs. All rights reserved.</Copyright>
+    <PackageTags>PowerEnum enum enums smartenum smartenums enumeration enumerations list lists set sets</PackageTags>
+    <DevelopmentDependency>false</DevelopmentDependency>
+    <NoPackageAnalysis>false</NoPackageAnalysis>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddPowerEnumLibraryToOutput;_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Source generators can actually be used in legacy .csproj projects if you use a new enough msbuild. -->
+    <None Include="Tools\install.ps1" Pack="true" PackagePath="tools\" />
+    <None Include="Tools\uninstall.ps1" Pack="true" PackagePath="tools\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="." />
+    <None Include="..\..\README.md" Pack="true" PackagePath="." />
+  </ItemGroup>
+  	
+  <ItemGroup>
+    <!-- Targets file which shows a warning if the user's project is using an old SDK version. -->
+    <None Include="Build\PowerEnum.targets" Pack="true" PackagePath="build\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <!-- Include PowerEnum.dll in package. -->
+    <ProjectReference Include="..\PowerEnum\PowerEnum.csproj" PrivateAssets="All" />
+  
+    <!-- Ensure generator/analyzers are built so they will be available for packaging. -->
+    <ProjectReference Include="..\PowerEnum.Analyzers\PowerEnum.Analyzers.csproj" PrivateAssets="All" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
+    <ProjectReference Include="..\PowerEnum.SourceGenerator\PowerEnum.SourceGenerator.csproj" PrivateAssets="All" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
+  </ItemGroup>
+  
+  <Target Name="_AddPowerEnumLibraryToOutput" DependsOnTargets="ResolveReferences">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)\PowerEnum.dll" PackagePath="lib/$(TargetFramework)" />
+      <TfmSpecificPackageFile Include="$(OutputPath)\PowerEnum.xml" PackagePath="lib/$(TargetFramework)" />
+    </ItemGroup>
+  </Target>
+  
+  <Target Name="_AddAnalyzersToOutput">
+    <ItemGroup>
+      <!-- Note - the roslyn folders only ever have major.minor version numbers. -->
+      <!-- Also - 4.3.1 is required, but note that 4.3.0 was never released. So the 4.3 folder is correct.-->
+
+      <TfmSpecificPackageFile Include="$(OutputPath)\PowerEnum.Analyzers.dll" PackagePath="analyzers/dotnet/roslyn4.3/cs" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
+
+      <TfmSpecificPackageFile Include="$(OutputPath)\PowerEnum.SourceGenerator.dll" PackagePath="analyzers/dotnet/roslyn4.3/cs" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
+    </ItemGroup>
+  </Target>
+</Project>

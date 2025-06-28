@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36121.58
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerEnum", "src\PowerEnum\PowerEnum.csproj", "{252B03E3-2C6E-1889-595A-267EA51A7DAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerEnum.SourceGenerator", "src\PowerEnum.SourceGenerator\PowerEnum.SourceGenerator.csproj", "{C92C1065-7F98-C0E3-7348-024CC54BBD8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Main", "Main", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{1C11CB37-C117-49A6-AAA1-9B7213E20393}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{75AB2573-5CAC-4297-BEF8-140736A63AFC}"
+	ProjectSection(SolutionItems) = preProject
+		test\README = test\README
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerEnum.Package", "src\PowerEnum.Package\PowerEnum.Package.csproj", "{ECAABACA-AD06-4A50-B215-61102379FBD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerEnum.Analyzers", "src\PowerEnum.Analyzers\PowerEnum.Analyzers.csproj", "{3EEE1220-104B-99A3-96D0-90FCB5C00EA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{B6F31015-DE9B-48C9-8109-EBE4E84D9B2B}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.Props = src\Directory.Build.Props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{F6FFDE70-E822-450F-BAD6-0680FCB1CE9F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "GeneratorShared", "src\GeneratorShared\GeneratorShared.shproj", "{C84F1661-2263-4DF5-AD02-A1B1A2E37E46}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PowerEnumShared", "src\PowerEnumShared\PowerEnumShared.shproj", "{FC5254A0-2FE8-4E25-B2CB-232240D32507}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{252B03E3-2C6E-1889-595A-267EA51A7DAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{252B03E3-2C6E-1889-595A-267EA51A7DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{252B03E3-2C6E-1889-595A-267EA51A7DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{252B03E3-2C6E-1889-595A-267EA51A7DAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C92C1065-7F98-C0E3-7348-024CC54BBD8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C92C1065-7F98-C0E3-7348-024CC54BBD8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C92C1065-7F98-C0E3-7348-024CC54BBD8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C92C1065-7F98-C0E3-7348-024CC54BBD8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECAABACA-AD06-4A50-B215-61102379FBD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECAABACA-AD06-4A50-B215-61102379FBD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECAABACA-AD06-4A50-B215-61102379FBD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECAABACA-AD06-4A50-B215-61102379FBD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EEE1220-104B-99A3-96D0-90FCB5C00EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EEE1220-104B-99A3-96D0-90FCB5C00EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EEE1220-104B-99A3-96D0-90FCB5C00EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EEE1220-104B-99A3-96D0-90FCB5C00EA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{252B03E3-2C6E-1889-595A-267EA51A7DAA} = {1C11CB37-C117-49A6-AAA1-9B7213E20393}
+		{C92C1065-7F98-C0E3-7348-024CC54BBD8D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {B6F31015-DE9B-48C9-8109-EBE4E84D9B2B}
+		{1C11CB37-C117-49A6-AAA1-9B7213E20393} = {B6F31015-DE9B-48C9-8109-EBE4E84D9B2B}
+		{ECAABACA-AD06-4A50-B215-61102379FBD4} = {F6FFDE70-E822-450F-BAD6-0680FCB1CE9F}
+		{3EEE1220-104B-99A3-96D0-90FCB5C00EA5} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{F6FFDE70-E822-450F-BAD6-0680FCB1CE9F} = {B6F31015-DE9B-48C9-8109-EBE4E84D9B2B}
+		{C84F1661-2263-4DF5-AD02-A1B1A2E37E46} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{FC5254A0-2FE8-4E25-B2CB-232240D32507} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71D86CC8-3094-4515-A6D3-083BFDDDD1ED}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\PowerEnumShared\PowerEnumShared.projitems*{252b03e3-2c6e-1889-595a-267ea51a7daa}*SharedItemsImports = 5
+		src\PowerEnumShared\PowerEnumShared.projitems*{3eee1220-104b-99a3-96d0-90fcb5c00ea5}*SharedItemsImports = 5
+		src\GeneratorShared\GeneratorShared.projitems*{c84f1661-2263-4df5-ad02-a1b1a2e37e46}*SharedItemsImports = 13
+		src\GeneratorShared\GeneratorShared.projitems*{c92c1065-7f98-c0e3-7348-024cc54bbd8d}*SharedItemsImports = 5
+		src\PowerEnumShared\PowerEnumShared.projitems*{c92c1065-7f98-c0e3-7348-024cc54bbd8d}*SharedItemsImports = 5
+		src\PowerEnumShared\PowerEnumShared.projitems*{fc5254a0-2fe8-4e25-b2cb-232240d32507}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal
